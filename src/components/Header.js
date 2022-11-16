@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function Header() {
   const [showLogout, setShowLogout] = React.useState(false)
   const navigate = useNavigate()
+  let user = JSON.parse(localStorage.getItem('user'))
+    
   useEffect(() => {
-    let user = JSON.parse(localStorage.getItem('user'))
     setShowLogout(user)
-  }, [])
+  }, [showLogout, user])
   console.log(showLogout)
   const logout = () => {
     localStorage.clear()
