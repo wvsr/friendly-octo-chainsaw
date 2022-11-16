@@ -23,9 +23,16 @@ export default function Header() {
       </div>
       <nav className='site-navigation'>
         <ul className='nav'>
-          <li>
-            <Link to=''>Home</Link>
+          {
+            showLogout?.email ? 
+            <li>
+            <Link to='/home'>Home</Link>
           </li>
+          :
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          }
 
           <li>
             {showLogout?.email ? 

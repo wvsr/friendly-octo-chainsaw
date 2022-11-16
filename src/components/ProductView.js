@@ -10,13 +10,13 @@ export default function NoPage() {
     if (productsObj[id]) {
       setDesc(productsObj[id])
     }
-  }, [])
+  }, [desc, id])
   return (
     <div className='container' style={{ marginTop: '1rem' }}>
-      <img src={desc.img} className='img' alt='' />
-      <h2>{desc.title}</h2>
+      <img src={desc?.img} className='img' alt='' />
+      <h2>{desc?.title}</h2>
       <br />
-      <p>{desc.desc}</p>
+      <p>{desc?.desc}</p>
     </div>
   )
 }
