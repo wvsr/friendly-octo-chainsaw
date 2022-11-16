@@ -27,7 +27,7 @@ export default function Header() {
           </li>
 
           <li>
-            {showLogout.email?
+            {showLogout?.email ? 
               <button to='singup' className='btn' onClick={logout}>
                 Log Out
               </button>
