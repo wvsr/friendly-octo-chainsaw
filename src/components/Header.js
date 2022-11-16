@@ -14,14 +14,14 @@ export default function Header() {
     window.location.reload()
   }
   return (
-    <header class='header'>
-      <div class='site-identity'>
+    <header className='header'>
+      <div className='site-identity'>
         <h1>
           <Link to=''>Site Name</Link>
         </h1>
       </div>
-      <nav class='site-navigation'>
-        <ul class='nav'>
+      <nav className='site-navigation'>
+        <ul className='nav'>
           <li>
             <Link to=''>Home</Link>
           </li>

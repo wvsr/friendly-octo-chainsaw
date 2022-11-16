@@ -6,8 +6,10 @@ export default function Login() {
   const HandleLogin = (e) => {
     e.preventDefault()
     let data = { email, password }
-    localStorage.setItem('user', JSON.stringify(data))
-    window.location.reload()
+    if (email && password) {
+      localStorage.setItem('user', JSON.stringify(data))
+      window.location.replace('/')
+    }
   }
   return (
     <div className='form-center'>
@@ -22,6 +24,7 @@ export default function Login() {
               placeholder='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </section>
           <section>
@@ -32,6 +35,7 @@ export default function Login() {
               placeholder='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </section>
           <button className='btn' onClick={HandleLogin}>

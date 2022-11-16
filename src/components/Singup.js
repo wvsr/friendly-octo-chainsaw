@@ -9,8 +9,10 @@ export default function Singup() {
   const HandleSingIn = (e) => {
     e.preventDefault()
     let data = { name, email, password }
-    localStorage.setItem('user', JSON.stringify(data))
-    window.location.reload()
+    if ((email, password)) {
+      localStorage.setItem('user', JSON.stringify(data))
+      window.location.replace('/')
+    }
   }
   return (
     <div className='form-center'>
