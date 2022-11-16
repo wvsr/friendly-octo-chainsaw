@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Header() {
   const [showLogout, setShowLogout] = React.useState(false)
-
+  const navigate = useNavigate()
   useEffect(() => {
-    let user = localStorage.getItem('user')
+    let user = JSON.parse(localStorage.getItem('user'))
     setShowLogout(user)
   }, [])
-
+  console.log(showLogout)
   const logout = () => {
     localStorage.clear()
-    window.location.reload()
+    navigate('/')
   }
   return (
     <header className='header'>
@@ -25,22 +25,22 @@ export default function Header() {
           <li>
             <Link to=''>Home</Link>
           </li>
-          {!showLogout && (
-            <>
-              <li>
-                <Link to='login'>Login</Link>
-              </li>
-              <li>
-                <Link to='singup'>SingUP</Link>
-              </li>
-            </>
-          )}
+
           <li>
-            {showLogout && (
+            {showLogout.email?
               <button to='singup' className='btn' onClick={logout}>
                 Log Out
               </button>
-            )}
+              :
+              <>
+                <li>
+                  <Link to='login'>Login</Link>
+                </li>
+                <li>
+                  <Link to='singup'>SingUP</Link>
+                </li>
+              </>
+            }
           </li>
         </ul>
       </nav>
